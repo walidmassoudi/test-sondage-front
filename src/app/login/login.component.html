@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-12">
+          <h2 style="color:#b60a0a;">login</h2>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-4">
+          <form [formGroup]="formAjout">
+              <label for="email">Username:</label>
+              <input type="text" placeholder="Username" formControlName="username" class="form-control" id="">
+              
+              <label for="pwd">Password:</label>
+              <input type="text" placeholder="Password" formControlName="password" class="form-control" id="">
+              <div *ngIf="formAjout.controls.password.hasError('required')" style="color:red">Password is required</div>
+              <div *ngIf="formAjout.controls.password.hasError('minlength')" style="color:red">password invalid</div>     
+              <br>
+              <button  [disabled]="!formAjout.valid" type="submit" class="btn btn-success btn-lg btn-block" (click)="clogin()">Connexion</button>
+          </form>
+      </div>
+  </div>
+</div>

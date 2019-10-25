@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-6">
+              <h2>Register</h2>
+              <h5>Create your account. It's free and only takes a minute.</h5>
+              <form [formGroup]="formAjout">
+                  <input type="text" formControlName="firstname" class="form-control" value="" placeholder="First Name" /><br>
+                  <input type="text" formControlName="lastname" class="form-control" value="" placeholder="Last Name" /><br>
+                  <input type="text" formControlName="username" class="form-control" value="" placeholder="username" /><br>
+                  <input type="text" formControlName="password" class="form-control" value="" placeholder="Password" />
+                  <div *ngIf="formAjout.controls.password.hasError('required')" style="color:red">Password is required</div>
+                  <div *ngIf="formAjout.controls.password.hasError('minlength')" style="color:red">password invalid</div>
+                  <button type="submit" [disabled]="!formAjout.valid" class="btn btn-success btn-lg btn-block" (click) = "addUser()">Register Now</button>
+              </form>
+      </div>
+  </div>
+</div>
+
